@@ -1,0 +1,363 @@
+/* Import the Roboto font from Google Fonts with weights 400 (regular) and 700 (bold) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Apply box-sizing: border-box to all elements for consistent sizing (includes padding and border in width/height) */
+* {
+  box-sizing: border-box;
+}
+
+/* Reset default margins and padding, set up a flexbox column layout for the body, ensure it takes full viewport height, set dark background and Roboto font */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+/* Second font import (redundant, identical to the first; should be removed to avoid duplicate requests) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Override body's background color to pure black (overwrites earlier #1a1a1a) */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+/* Style the header: fixed at the top, full-width, with a background image, shadow, and flex layout for logo and navigation */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-image: url('header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 2cm;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Add a semi-transparent dark overlay to the header for better text readability */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 15, 15, 0.579);
+  z-index: 1;
+}
+
+/* Style the logo container, ensuring it stays above the header overlay */
+.logo {
+  margin-left: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the logo image with a fixed height and a subtle scale animation on hover */
+.logo img {
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Style the navigation, positioned to the right and above the header overlay */
+nav {
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the navigation list as a horizontal flexbox with no default styling */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Add spacing between navigation items */
+nav ul li {
+  margin-right: 20px;
+}
+
+/* Style navigation links with consistent typography, no underline, and hover effects */
+nav ul li a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 8px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Change link color and add a bottom border on hover or when active */
+nav ul li a:hover, nav ul li a.active {
+  color: #00c4cc;
+  border-bottom: 2px solid #00c4cc;
+}
+
+/* Style the contact button in the navigation with a teal background and hover effect */
+.contact-btn-nav {
+  background: #00c4cc;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 16px;
+  min-width: 80px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+/* Maintain the same background color on hover (no change, could be enhanced for visual feedback) */
+.contact-btn-nav:hover {
+  background: #00c4cc;
+}
+
+/* Style the main content area for the info page with padding to account for fixed header */
+.info {
+  padding: 120px 20px 40px;
+  text-align: center;
+}
+
+/* Style the main heading for the info page */
+.info__content h1 {
+  margin-top: 0cm;
+  margin-bottom: 15px;
+  font-size: 2.5em;
+  color: #fff;
+}
+
+/* Style the subtitle for the info page with lighter gray text */
+.info__content h4 {
+  color: #ccc;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+/* Style the about section with additional padding */
+.info_about {
+  padding: 40px 20px;
+}
+
+/* Style the container for the description and image, centered with a dark background and shadow */
+.description__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #1a1a1a;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the content inside the description container as a flexbox row */
+.description__content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 50px;
+  text-align: left;
+}
+
+/* Style the image in the about section with a fixed width and shadow */
+.info__image {
+  flex-shrink: 0;
+  width: 350px;
+  max-width: 40%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the text container to take remaining space */
+.description__text {
+  flex-grow: 1;
+}
+
+/* Style paragraphs in the description text with spacing and light gray color */
+.description__text p {
+  margin-bottom: 1.2em;
+  line-height: 1.8;
+  color: #e0e0e0;
+}
+
+/* Style the call-to-action button in the about section */
+.info_about .button {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 14px 30px;
+  background-color: #00c4cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.2s ease;
+}
+
+/* Change button background on hover for visual feedback */
+.info_about .button:hover {
+  background-color: #0099a6;
+  color: white;
+}
+
+/* Style the footer with a gradient background, centered text, and teal accents */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background: linear-gradient(to bottom, #000000, #00c4cc);
+  border-top: 1px solid #000000;
+  margin-top: 0;
+  color: #bbb;
+}
+
+/* Style footer paragraphs with Times New Roman font and spacing */
+footer p {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Style footer branding with italicized text and hover effect */
+.footer-branding {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-branding:hover {
+  color: #ddd;
+}
+
+/* Responsive adjustments for medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    height: 70px;
+  }
+
+  nav ul li {
+    margin-right: 15px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .contact-btn-nav {
+    padding: 8px 15px;
+    font-size: 14px;
+    min-width: 80px;
+  }
+
+  .info {
+    padding: 100px 20px 30px;
+  }
+
+  .description__content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .info__image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .description__container {
+    padding: 30px;
+  }
+}
+
+/* Responsive adjustments for small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+  header {
+    padding: 8px 15px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  nav ul li {
+    margin-right: 10px;
+  }
+
+  nav ul li a {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .contact-btn-nav {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 70px;
+  }
+
+  .info {
+    padding: 80px 15px 20px;
+  }
+
+  .description__container {
+    padding: 20px;
+  }
+
+  .info__image {
+    width: 100%;
+  }
+
+  .info__content h1 {
+    font-size: 2em;
+  }
+
+  .info__content h4 {
+    font-size: 1em;
+  }
+
+  footer p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  .footer-branding {
+    font-size: 12px;
+  }
+}

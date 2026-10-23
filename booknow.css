@@ -1,0 +1,469 @@
+/* Import the Roboto font from Google Fonts with weights 400 (regular) and 700 (bold) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Apply box-sizing: border-box to all elements for consistent sizing (includes padding and border in width/height) */
+* {
+  box-sizing: border-box;
+}
+
+/* Reset default margins and padding, set up a flexbox column layout for the body, ensure it takes full viewport height, set dark background and Roboto font */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+/* Second font import (redundant, identical to the first; should be removed to avoid duplicate requests) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Override body's background color to pure black (overwrites earlier #1a1a1a) */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+/* Style the header: fixed at the top, full-width, with a background image, shadow, and flex layout for logo and navigation */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-image: url('header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 2cm;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Add a semi-transparent dark overlay to the header for better text readability */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 15, 15, 0.579);
+  z-index: 1;
+}
+
+/* Style the logo container, ensuring it stays above the header overlay */
+.logo {
+  margin-left: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the logo image with a fixed height and a subtle scale animation on hover */
+.logo img {
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Style the navigation, positioned to the right and above the header overlay */
+nav {
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the navigation list as a horizontal flexbox with no default styling */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Add spacing between navigation items */
+nav ul li {
+  margin-right: 20px;
+}
+
+/* Style navigation links with consistent typography, no underline, and hover effects */
+nav ul li a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 8px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Change link color and add a bottom border on hover or when active */
+nav ul li a:hover, nav ul li a.active {
+  color: #00c4cc;
+  border-bottom: 2px solid #00c4cc;
+}
+
+/* Style the contact button in the navigation with a teal background and hover effect */
+.contact-btn-nav {
+  background: #00c4cc;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 16px;
+  min-width: 80px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+/* Maintain the same background color on hover (no change, could be enhanced for visual feedback) */
+.contact-btn-nav:hover {
+  background: #00c4cc;
+}
+
+/* Style the main content area to center content vertically and horizontally, with padding to account for fixed header and footer */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 140px 20px 80px;
+  background: linear-gradient(135deg, #0d0d0e 0%, #000000 100%);
+}
+
+/* Style the container for form or main content, with a dark background, shadow, and rounded corners */
+.container {
+  background-color: #1a1a1a;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  margin-top: 1cm;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+}
+
+/* Style the main heading in the container with a teal color and bold weight */
+.container h1 {
+  font-size: 32px;
+  color: #00c4cc;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Style the subtitle text with white color and spacing */
+.subtitle {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* Style form input fields and date picker inputs with consistent padding, border, and colors */
+.user-info input,
+.date-picker input {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #00c4cc;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 1cm;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Add an icon to text input fields using a data URI SVG (user icon) */
+.user-info input[type="text"] {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.67 0 8 1.34 8 4v2H4v-2c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 14px center;
+  padding-left: 44px;
+}
+
+/* Add an icon to email input fields using a data URI SVG (envelope icon) */
+.user-info input[type="email"] {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 1.99 2H20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 14px center;
+  padding-left: 44px;
+}
+
+/* Add an icon to telephone input fields using a data URI SVG (phone icon) */
+.user-info input[type="tel"] {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1A16 16 0 0 1 4 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.01l-2.2 2.21z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 14px center;
+  padding-left: 44px;
+}
+
+/* Style input fields on focus with a brighter teal border and glow effect */
+input:focus {
+  border-color: #00d4dd;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 212, 221, 0.3);
+}
+
+/* Style the time slot grid as a responsive grid layout with scrollable overflow */
+.time-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #00c4cc;
+  border-radius: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+/* Style individual time slot buttons with a dark background and teal border */
+.time-slot-btn {
+  padding: 12px;
+  background-color: #333;
+  border: 2px solid #00c4cc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #f3f4f6;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add hover effect to time slot buttons with a slight lift */
+.time-slot-btn:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* Style selected time slot buttons with a brighter teal background and shadow */
+.time-slot-btn.selected {
+  background-color: #00d4dd;
+  color: #fff;
+  border-color: #00d4dd;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 212, 221, 0.6);
+}
+
+/* Style the confirm button with a teal background and hover animation */
+button.confirm {
+  background-color: #00c4cc;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Maintain background color on hover but add a slight scale effect */
+button.confirm:hover {
+  background-color: #00c4cc;
+  transform: scale(1.03);
+}
+
+/* General styling for inputs, selects, and buttons with consistent sizing and spacing */
+input,
+select,
+button {
+  margin-bottom: 1cm;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Style inputs and selects with a dark background and light text */
+input,
+select {
+  background: #3a3a3a;
+  color: #f4f4f4;
+  border: 1px solid #555;
+}
+
+/* Style placeholder text with a lighter gray color */
+input::placeholder {
+  color: #aaa;
+}
+
+/* Style labels with bold text and spacing */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style for elements with a highlight animation (e.g., for form validation errors) */
+.highlight-flash {
+  animation: flashBorder 1s ease-in-out 3;
+  border: 2px solid #f39c12 !important;
+  box-shadow: 0 0 10px #f39c12;
+}
+
+/* Define the flash animation for highlighting elements (e.g., form errors) */
+@keyframes flashBorder {
+  0%, 100% { box-shadow: 0 0 0px transparent; border-color: transparent; }
+  50% { box-shadow: 0 0 10px #f39c12; border-color: #f39c12; }
+}
+
+/* Style the footer with a gradient background, centered text, and teal accents */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background: linear-gradient(to bottom, #000000, #00c4cc);
+  border-top: 1px solid #000000;
+  margin-top: 0;
+  color: #bbb;
+}
+
+/* Style footer paragraphs with Times New Roman font and spacing */
+footer p {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Style footer branding with italicized text and hover effect */
+.footer-branding {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-branding:hover {
+  color: #ddd;
+}
+
+/* Style the hamburger menu toggle (hidden by default, used for mobile) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Style the hamburger icon with three lines */
+.nav-toggle .hamburger {
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  position: relative;
+  transition: transform 220ms ease, background 220ms ease;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after  { top: 8px; }
+
+/* Transform hamburger into an "X" when menu is open */
+.nav-toggle[aria-expanded="true"] .hamburger { background: transparent; }
+.nav-toggle[aria-expanded="true"] .hamburger::before { transform: rotate(45deg) translate(2px, 2px); }
+.nav-toggle[aria-expanded="true"] .hamburger::after { transform: rotate(-45deg) translate(2px, -2px); }
+
+/* Mobile navigation: show hamburger and make nav a dropdown */
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; z-index: 1200; }
+
+  /* Hide nav by default, to be toggled by JavaScript */
+  nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: rgba(0,0,0,0.96);
+    padding: 18px 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+    border-top: 1px solid rgba(255,255,255,0.03);
+    z-index: 1100;
+  }
+
+  /* Show nav when .open class is added by JavaScript */
+  nav.open { display: block !important; }
+
+  /* Stack nav items vertically on mobile */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    align-items: flex-start;
+  }
+
+  nav ul li { margin: 0; }
+  nav ul li a { display: block; padding: 8px 6px; font-size: 18px; }
+}
+
+/* Disable hamburger animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle .hamburger,
+  .nav-toggle .hamburger::before,
+  .nav-toggle .hamburger::after { transition: none !important; }
+}
+
+/* Responsive adjustments for medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+  .logo img {
+    height: 80px;
+  }
+  .container {
+    padding: 30px;
+    max-width: 90%;
+  }
+  .time-slot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive adjustments for small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+  .logo img {
+    height: 60px;
+  }
+  .container h1 {
+    font-size: 28px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+}

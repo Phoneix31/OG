@@ -1,0 +1,94 @@
+<!-- Declare the document type as HTML5 -->
+<!DOCTYPE html>
+
+<!-- Define the HTML document with English as the primary language -->
+<html lang="en">
+
+<head>
+  <!-- Specify UTF-8 character encoding for proper text rendering -->
+  <meta charset="UTF-8">
+  
+  <!-- Ensure responsive design by setting viewport to device width and initial scale -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Set the page title displayed in the browser tab -->
+  <title>Info - OG Photography</title>
+  
+  <!-- Link to the main stylesheet (info.css or styles.css) for info page styling -->
+  <link rel="stylesheet" href="info.css">
+  
+  <!-- Link to an additional stylesheet for responsive design rules -->
+  <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+  <!-- Header section, consistent with other pages, styled as a fixed navigation bar -->
+  <header>
+    <!-- Logo container with an image, styled to scale on hover -->
+    <div class="logo">
+      <img src="Image/logo1.PNG" alt="OG Photography logo">
+    </div>
+    
+    <!-- Hamburger menu toggle button for mobile navigation, hidden on larger screens -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <!-- Visual hamburger icon, styled to transform into an "X" when active -->
+      <span class="hamburger"></span>
+    </button>
+    
+    <!-- Navigation menu with links, styled as a horizontal list on desktop and dropdown on mobile -->
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="blog.html">BLOG</a></li>
+        <!-- Info link, marked as active for the current page -->
+        <li><a href="info.html" class="active">INFO</a></li>
+        <!-- Contact button styled with a teal background -->
+        <li><a href="booknow.html" class="contact-btn-nav">BOOK NOW</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content area for the info page -->
+  <main>
+    <!-- Section for the main heading and subtitle -->
+    <section class="info">
+      <div class="info__content">
+        <!-- Heading for the about section -->
+        <h1 class="section__header">ABOUT ME</h1>
+        <!-- Subtitle introducing the photographer's personality -->
+        <h4>I'm an open book — with lots of pictures.</h4>
+      </div>
+    </section>
+
+    <!-- Section for the about description and image -->
+    <section class="info_about">
+      <!-- Container for the description and image -->
+      <div class="description__container">
+        <!-- Flex container for image and text -->
+        <div class="description__content">
+          <!-- Image of the photographer, styled with a shadow and rounded corners -->
+          <img src="Image/me.jpg" alt="Portrait of the photographer" class="info__image">
+          
+          <!-- Text content describing the photographer's background and philosophy -->
+          <div class="description__text">
+            <p>I love memories. Always a sentimental guy, I purchased my first camera at eighteen years old, with the intention of remembering a summer romance with a very special girl. Although many things in my life have changed over the years, there have always been two constants: the girl (who’s now my wife) and documenting memories.</p>
+            <p>I love my family. If there’s one thing you need to know about me, it’s that: there’s nothing I wouldn’t do for them, and they (and families, in general) are the biggest source of inspiration for my craft. It’s because of my family’s love and support that I have the chance to capture your most cherished moments — whether it be a grand celebration or just an ordinary day at home.</p>
+            <p>I love giving gifts. I’ve been known to take birthdays very seriously, and I enjoy the pursuit of finding that perfect present for a loved one. For me, working with your family is no different: I strive to create images that are sincerely “you” that you’ll treasure and pass down for years to come.</p>
+            <p>If my work resonates with you, I'd be honored to tell your story.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with contact info, copyright, and location, styled with a gradient background -->
+  <footer>
+    <p>Email: mohmaede31@gmail.com</p>
+    <p><em>Copyright © 2025 OG Photography. All Rights Reserved.</em></p>
+    <p>Moorhead, MN - Fargo, ND</p>
+  </footer>
+  
+  <!-- Include JavaScript file for shared functionality (e.g., mobile nav toggle) -->
+  <script src="scripts.js"></script>
+</body>
+</html>

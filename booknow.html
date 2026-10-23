@@ -1,0 +1,314 @@
+<!-- Declare the document type as HTML5 -->
+<!DOCTYPE html>
+
+<!-- Define the HTML document with English as the primary language -->
+<html lang="en">
+
+<head>
+  <!-- Specify UTF-8 character encoding for proper text rendering -->
+  <meta charset="UTF-8" />
+  
+  <!-- Ensure responsive design by setting viewport to device width and initial scale -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Provide a meta description for SEO, describing the booking page -->
+  <meta name="description" content="Book your photography session with OG Photography in Moorhead, MN or Fargo, ND."/>
+  
+  <!-- Set the page title displayed in the browser tab -->
+  <title>Book Appointment - OG Photography</title>
+  
+  <!-- Link to the main stylesheet (booknow.css) for booking page styling -->
+  <link rel="stylesheet" href="booknow.css" />
+  
+  <!-- Link to an additional stylesheet (responsive.css) for responsive design rules -->
+  <link rel="stylesheet" href="responsive.css" />
+  
+  <!-- Set the favicon for the browser tab -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  
+  <!-- Include Animate.css for fade-in animations on the container -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
+  <!-- Include Flatpickr CSS for the date picker styling -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
+</head>
+
+<body>
+  <!-- Header section, styled as a fixed navigation bar with a background image -->
+  <header>
+    <!-- Logo container with an image, styled to scale on hover -->
+    <div class="logo">
+      <img src="Image/logo1.PNG" alt="OG Photography logo">
+    </div>
+    
+    <!-- Hamburger menu toggle button for mobile navigation, hidden on larger screens -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <!-- Visual hamburger icon, styled to transform into an "X" when active -->
+      <span class="hamburger"></span>
+    </button>
+    
+    <!-- Navigation menu with links, styled as a horizontal list on desktop and dropdown on mobile -->
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="blog.html">BLOG</a></li>
+        <li><a href="info.html">INFO</a></li>
+        <!-- Contact button styled with a teal background for the active page -->
+        <li><a href="booknow.html" class="contact-btn-nav">BOOK NOW</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content area, styled to center content with padding for the fixed header -->
+  <main>
+    <!-- Container section with a fade-in animation, styled as a dark card with rounded corners -->
+    <section class="container animate__animated animate__fadeInUp">
+      <!-- Heading for the booking form -->
+      <h1>Book Your Session</h1>
+      
+      <!-- Subtitle describing the form's purpose -->
+      <p class="subtitle">Schedule your photography appointment with ease.</p>
+      
+      <!-- Hidden suggestion box for displaying validation or booking error messages -->
+      <p id="suggestion" style="color: #f39c12; font-weight: bold; display: none;"></p>
+      
+      <!-- Booking form with inputs for user information and session details -->
+      <form id="booking-form">
+        <!-- Container for user input fields -->
+        <div class="user-info">
+          <!-- Text input for the user's full name, styled with a user icon -->
+          <div><input type="text" id="name" name="name" placeholder="Enter your full name" required /></div>
+          
+          <!-- Email input, styled with an envelope icon -->
+          <div><input type="email" id="email" name="email" placeholder="Enter your email" required /></div>
+          
+          <!-- Phone input, styled with a phone icon -->
+          <div><input type="tel" id="phone" name="phone" placeholder="Enter your phone number (e.g., 555-123-4567)" required /></div>
+          
+          <!-- Date input for selecting session date, enhanced by Flatpickr -->
+          <div><input type="text" id="date" name="date" placeholder="Select your date" required /></div>
+          
+          <!-- Dropdown for selecting session start time -->
+          <div>
+            <select id="startTime" name="startTime" required>
+              <option value="">-- Select Start Time --</option>
+              <option value="08:00">8:00 AM</option>
+              <option value="09:00">9:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="20:00">8:00 PM</option>
+            </select>
+          </div>
+          
+          <!-- Dropdown for selecting session duration -->
+          <div>
+            <select id="duration" name="duration" required>
+              <option value="">-- Select Duration (in hours) --</option>
+              <option value="1">1 hour</option>
+              <option value="2">2 hours</option>
+              <option value="3">3 hours</option>
+              <option value="4">4 hours</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Display pricing information with dynamic deposit and remaining amounts -->
+        <p style="font-weight:bold;">
+          We charge $250 per hour.<br>
+          You will pay <span id="depositDisplay">$50</span> per hour as a deposit now.<br>
+          The remaining <span id="remainingDisplay">$200</span> per hour is due after the session.
+        </p>
+        
+        <!-- Submit button for the form, styled with teal background and hover effect -->
+        <button type="submit" class="confirm">Confirm Appointment</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer with contact info, copyright, and location, styled with a gradient background -->
+  <footer>
+    <p>Email: mohmaede31@gmail.com</p>
+    <p><em>Copyright © 2025 OG Photography. All Rights Reserved.</em></p>
+    <p>Moorhead, MN - Fargo, ND</p>
+  </footer>
+
+  <!-- Include Flatpickr JavaScript for date picker functionality -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  
+  <!-- Inline JavaScript for form handling and booking logic -->
+  <script>
+    // Wait for the DOM to fully load before executing
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Flatpickr on the date input with a user-friendly format and minimum date of today
+      flatpickr('#date', {
+        altInput: true,
+        altFormat: 'F j, Y',
+        dateFormat: 'Y-m-d',
+        minDate: 'today',
+        onChange: (selectedDates, dateStr) => {
+          if (dateStr) updateBookedTimes(dateStr);
+        }
+      });
+
+      // Get references to form elements
+      const form = document.getElementById('booking-form');
+      const suggestionBox = document.getElementById('suggestion');
+      const startTimeField = document.getElementById('startTime');
+      const durationField = document.getElementById('duration');
+      const depositDisplay = document.getElementById('depositDisplay');
+      const remainingDisplay = document.getElementById('remainingDisplay');
+
+      // Update deposit and remaining cost display based on selected duration
+      function updateCostDisplay() {
+        const duration = parseInt(durationField.value);
+        if (!isNaN(duration)) {
+          const deposit = 50 * duration;
+          const remaining = 200 * duration;
+          depositDisplay.textContent = `$${deposit}`;
+          remainingDisplay.textContent = `$${remaining}`;
+        } else {
+          depositDisplay.textContent = '$50';
+          remainingDisplay.textContent = '$200';
+        }
+      }
+
+      // Update cost display when duration changes
+      durationField.addEventListener('change', updateCostDisplay);
+
+      // Handle form submission
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get form input values - INCLUDING PHONE
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const date = document.getElementById('date').value;
+        const startTime = startTimeField.value;
+        const duration = durationField.value;
+
+        // Basic client-side validation
+        if (!name || !email || !phone || !date || !startTime || !duration) {
+          suggestionBox.textContent = '❌ Please fill all fields, including phone number.';
+          suggestionBox.style.display = 'block';
+          return;
+        }
+
+        // Validate phone format (basic US phone number validation)
+        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+        if (!phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))) {
+          suggestionBox.textContent = '❌ Please enter a valid phone number (e.g., 555-123-4567).';
+          suggestionBox.style.display = 'block';
+          return;
+        }
+
+        const formData = { name, email, phone, date, startTime, duration };
+
+        try {
+          // First check booking availability
+          const bookingRes = await fetch('http://localhost:3000/api/book', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData) // Include phone in availability check
+          });
+
+          const result = await bookingRes.json();
+
+          if (result.success) {
+            // If booking is available, create Stripe checkout session with ALL form data
+            const stripeRes = await fetch('http://localhost:3000/api/create-checkout-session', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, email, phone, date, startTime, duration }) // ✅ INCLUDE PHONE HERE
+            });
+
+            if (!stripeRes.ok) {
+              throw new Error(`Stripe session creation failed: ${stripeRes.status}`);
+            }
+
+            const session = await stripeRes.json();
+            if (session.url) {
+              console.log('🔄 Redirecting to Stripe checkout...');
+              window.location.href = session.url; // Redirect to Stripe checkout
+            } else {
+              throw new Error('No redirect URL received from Stripe');
+            }
+          } else if (result.suggestedStart) {
+            // If the selected time is booked, suggest the next available time
+            startTimeField.value = result.suggestedStart;
+            suggestionBox.textContent = `⏳ That time is taken. Next available time is ${result.suggestedStart}. It has been auto-filled for you.`;
+            suggestionBox.style.display = 'block';
+            startTimeField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            startTimeField.classList.add('highlight-flash');
+            setTimeout(() => {
+              startTimeField.classList.remove('highlight-flash');
+            }, 3000);
+          } else {
+            // Display error message if booking fails
+            suggestionBox.textContent = `❌ Booking failed: ${result.message || 'Time slot unavailable'}`;
+            suggestionBox.style.display = 'block';
+          }
+        } catch (err) {
+          console.error('❌ Booking Error:', err);
+          suggestionBox.textContent = '⚠️ Something went wrong. Please try again or contact support.';
+          suggestionBox.style.display = 'block';
+        }
+      });
+
+      // Function to update available time slots based on selected date
+      async function updateBookedTimes(date) {
+        const options = startTimeField.querySelectorAll('option');
+        options.forEach(option => {
+          option.disabled = false;
+          option.textContent = option.textContent.replace(' (Booked)', '');
+        });
+
+        try {
+          // Fetch booked times for the selected date
+          const response = await fetch('http://localhost:3000/api/booked-times', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ date })
+          });
+
+          const result = await response.json();
+          if (result.success) {
+            const booked = result.booked.map(event => ({
+              start: new Date(event.start),
+              end: new Date(event.end)
+            }));
+
+            // Disable booked time slots in the dropdown
+            options.forEach(option => {
+              const value = option.value;
+              if (!value.includes(':')) return;
+              const [hour, minute] = value.split(':').map(Number);
+              const optionDate = new Date(`${date}T${value}:00`);
+              for (let event of booked) {
+                if (optionDate >= event.start && optionDate < event.end) {
+                  option.disabled = true;
+                  option.textContent += ' (Booked)';
+                  break;
+                }
+              }
+            });
+          }
+        } catch (err) {
+          console.error('Error loading booked times:', err);
+        }
+      }
+    });
+  </script>
+  
+  <!-- Include additional JavaScript file for shared functionality (e.g., mobile nav toggle) -->
+  <script src="scripts.js"></script>
+</body>
+</html>

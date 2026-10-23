@@ -1,0 +1,440 @@
+/* Import the Roboto font from Google Fonts with weights 400 (regular) and 700 (bold) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Apply box-sizing: border-box to all elements for consistent sizing (includes padding and border in width/height) */
+* {
+  box-sizing: border-box;
+}
+
+/* Reset default margins and padding, set up a flexbox column layout for the body, ensure it takes full viewport height, set dark background and Roboto font */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+/* Second font import (redundant, as it's identical to the first one; could be removed to avoid duplicate requests) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Override body's background color to pure black (overwrites earlier #1a1a1a) */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+/* Style the header: fixed at the top, full-width, with a background image, shadow, and flex layout for content */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-image: url('header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 2cm;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Add a semi-transparent dark overlay to the header for better text readability */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 15, 15, 0.579);
+  z-index: 1;
+}
+
+/* Style the logo container, ensuring it stays above the header overlay */
+.logo {
+  margin-left: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the logo image with a fixed height and a subtle scale animation on hover */
+.logo img {
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Style the navigation, positioned to the right and above the header overlay */
+nav {
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the navigation list as a horizontal flexbox with no default styling */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Add spacing between navigation items */
+nav ul li {
+  margin-right: 20px;
+}
+
+/* Style navigation links with consistent typography, no underline, and hover effects */
+nav ul li a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 8px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Change link color and add a bottom border on hover or when active */
+nav ul li a:hover, nav ul li a.active {
+  color: #00c4cc;
+  border-bottom: 2px solid #00c4cc;
+}
+
+/* Style the contact button in the navigation with a distinct background and hover effect */
+.contact-btn-nav {
+  background: #00c4cc;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 16px;
+  min-width: 80px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+/* Maintain the same background color on hover for consistency (no change) */
+.contact-btn-nav:hover {
+  background: #00c4cc;
+}
+
+/* Style the main blog post section with padding and centered content */
+main.blog-post {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style the post date with a teal color and smaller font */
+.post-date {
+  color: #00c4cc;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Style the post title with a large font and spacing */
+.post-title {
+  margin-top: 2cm;
+  color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+/* Style the post category with teal color and spacing */
+.post-category {
+  color: #00c4cc;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Style the services section as a 2-column grid with spacing */
+.services-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+/* Style individual service cards with dark background, padding, and rounded corners */
+.service-card {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Style service card headings with teal color */
+.service-card h3 {
+  color: #00c4cc;
+  margin-top: 10px;
+}
+
+/* Style service card paragraphs with light gray text and increased line height */
+.service-card p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Style the footer with centered text, padding, and a teal border */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+  border-top: 2px solid #00c4cc;
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* Media query for larger screens: switch services section to 3-column grid */
+@media (min-width: 768px) {
+  .services-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Override footer styling with a gradient background and adjusted padding */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background: linear-gradient(to bottom, #000000, #00c4cc);
+  border-top: 1px solid #000000;
+  margin-top: 0;
+  color: #bbb;
+}
+
+/* Style footer paragraphs with Times New Roman font and spacing */
+footer p {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Style footer branding with italicized text and hover effect */
+.footer-branding {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-branding:hover {
+  color: #ddd;
+}
+
+/* Enhanced services section with slightly different spacing */
+.services-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 32px;
+}
+
+/* Enhanced service card styling with gradient background, shadow, and hover animation */
+.service-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: linear-gradient(180deg, #1b1b1b 0%, #0f0f0f 100%);
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+  transition: transform 250ms cubic-bezier(.2,.9,.3,1), box-shadow 250ms ease;
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* Lift and enhance shadow on service card hover or focus */
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Style icons within service cards with circular background and subtle animations */
+.icon {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: transform 280ms ease, box-shadow 280ms ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+  flex-shrink: 0;
+}
+
+/* Enhance icon appearance on hover or focus */
+.service-card:hover .icon,
+.service-card:focus-within .icon {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.55);
+}
+
+/* Define a floating animation for icons to add subtle movement */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* Apply float animation to icons and pause on hover */
+.icon svg { 
+  display: block; 
+  width: 40px; 
+  height: 40px; 
+  animation: float 6s ease-in-out infinite; 
+  transform-origin: center; 
+}
+.service-card:hover .icon svg { 
+  animation-play-state: paused; 
+  transform: scale(1.03); 
+}
+
+/* Style content within service cards */
+.content h3 {
+  margin: 0 0 6px 0;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.content p {
+  margin: 0;
+  color: #cfcfcf;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments for smaller screens: single-column services grid and smaller icons */
+@media (max-width: 768px) {
+  .services-section { grid-template-columns: 1fr; }
+  .icon { width: 56px; height: 56px; min-width: 56px; }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .icon svg { animation: none !important; }
+  .service-card { transition: none !important; }
+  .service-card:hover { transform: none !important; box-shadow: none !important; }
+}
+
+/* Adjust logo and text sizes for very small screens */
+@media (max-width: 480px) {
+  .logo img {
+    height: 60px;
+  }
+  .container h1 {
+    font-size: 28px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+}
+
+/* Style the hamburger menu toggle (hidden by default, used for mobile) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Style the hamburger icon with three lines */
+.nav-toggle .hamburger {
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  position: relative;
+  transition: transform 220ms ease, background 220ms ease;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after  { top: 8px; }
+
+/* Transform hamburger into an "X" when menu is open */
+.nav-toggle[aria-expanded="true"] .hamburger { background: transparent; }
+.nav-toggle[aria-expanded="true"] .hamburger::before { transform: rotate(45deg) translate(2px, 2px); }
+.nav-toggle[aria-expanded="true"] .hamburger::after  { transform: rotate(-45deg) translate(2px, -2px); }
+
+/* Mobile navigation: show hamburger and make nav a dropdown */
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; z-index: 1200; }
+
+  /* Hide nav by default, to be toggled by JavaScript */
+  nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: rgba(0,0,0,0.96);
+    padding: 18px 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+    border-top: 1px solid rgba(255,255,255,0.03);
+    z-index: 1100;
+  }
+
+  /* Show nav when .open class is added by JavaScript */
+  nav.open { display: block !important; }
+
+  /* Stack nav items vertically on mobile */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    align-items: flex-start;
+  }
+
+  nav ul li { margin: 0; }
+  nav ul li a { display: block; padding: 8px 6px; font-size: 18px; }
+}
+
+/* Disable hamburger animations for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle .hamburger,
+  .nav-toggle .hamburger::before,
+  .nav-toggle .hamburger::after { transition: none !important; }
+}

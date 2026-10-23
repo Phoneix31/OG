@@ -1,0 +1,176 @@
+<!-- Declare the document type as HTML5 -->
+<!DOCTYPE html>
+
+<!-- Define the HTML document with English as the primary language -->
+<html lang="en">
+
+<head>
+    <!-- Specify UTF-8 character encoding for proper text rendering -->
+    <meta charset="UTF-8">
+    
+    <!-- Ensure responsive design by setting viewport to device width and initial scale -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Set the page title displayed in the browser tab -->
+    <title>Home - OG Photography</title>
+    
+    <!-- Link to the main stylesheet (blog.css) for general styling -->
+    <link rel="stylesheet" href="blog.css">
+    
+    <!-- Link to an additional stylesheet (responsive.css) for responsive design rules -->
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <!-- Header section, styled as a fixed navigation bar with a background image -->
+    <header>
+        <!-- Logo container with an image, styled to scale on hover -->
+        <div class="logo">
+            <img src="Image/logo1.PNG" alt="OG Photography logo">
+        </div>
+        
+        <!-- Hamburger menu toggle button for mobile navigation, hidden by default on larger screens -->
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <!-- Visual hamburger icon, styled to transform into an "X" when active -->
+            <span class="hamburger"></span>
+        </button>
+        
+        <!-- Navigation menu with links, styled as a horizontal list on desktop and dropdown on mobile -->
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="blog.html" class="active">BLOG</a></li>
+                <li><a href="info.html">INFO</a></li>
+                <!-- Contact button styled differently with a teal background -->
+                <li><a href="booknow.html" class="contact-btn-nav">BOOK NOW</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area for the blog post, styled with centered content and padding -->
+    <main class="blog-post">
+        <!-- Blog post title, styled with large white text and top margin -->
+        <h1 class="post-title">What I have learnt as a Photographer over the years</h1>
+        
+        <!-- Blog post category, styled in teal for emphasis -->
+        <p class="post-category">For Photographers</p>
+
+        <!-- Services section displayed as a grid (2 columns on mobile, 3 on desktop) -->
+        <div class="services-section">
+            <!-- Service card for "The Importance of Lighting" -->
+            <div class="service-card">
+                <!-- Icon container with an SVG representing lighting, styled with a circular background and float animation -->
+                <div class="icon" aria-hidden="true">
+                    <!-- SVG icon for lighting (sun-like), styled with teal stroke and subtle fill -->
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" stroke="#00c4cc" stroke-width="1.6" fill="rgba(255,0,0,0.08)"/>
+                        <g stroke="#00c4cc" stroke-width="1.4" stroke-linecap="round">
+                            <path d="M12 1.5v2.5"/>
+                            <path d="M12 20v2.5"/>
+                            <path d="M21 12h-2.5"/>
+                            <path d="M5.5 12H3"/>
+                            <path d="M18.4 5.6l-1.8 1.8"/>
+                            <path d="M7.4 18.6l-1.8 1.8"/>
+                            <path d="M18.4 18.6l-1.8-1.8"/>
+                            <path d="M7.4 5.6l-1.8-1.8"/>
+                        </g>
+                    </svg>
+                </div>
+                <!-- Card content with heading and paragraph, styled with white and gray text -->
+                <div class="content">
+                    <h3>The Importance of Lighting</h3>
+                    <p>One of the first lessons I learned in photography is that lighting can make or break an image. Whether it’s natural light or artificial, understanding how light interacts with a subject is crucial. The golden hours—just after sunrise and before sunset—offer the most flattering light for outdoor photography. Additionally, mastering how to use shadows and highlights can add depth and emotion to an image.</p>
+                </div>
+            </div>
+
+            <!-- Service card for "Composition Matters" -->
+            <div class="service-card">
+                <!-- SVG icon for composition (rule of thirds grid), styled similarly -->
+                <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#00c4cc" stroke-width="1.4" fill="rgba(0,196,204,0.04)"/>
+                        <path d="M8.5 3v18M15.5 3v18M3 8.5h18M3 15.5h18" stroke="#00c4cc" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>Composition Matters</h3>
+                    <p>A well-composed image draws the viewer’s attention effortlessly. The rule of thirds, leading lines, and framing techniques help in creating visually appealing photographs. Over time, I have learned to break these rules creatively to achieve unique compositions that tell a compelling story.</p>
+                </div>
+            </div>
+
+            <!-- Service card for "The Power of Patience" -->
+            <div class="service-card">
+                <!-- SVG icon for patience (hourglass), styled with animation -->
+                <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M6 2h12M6 22h12" stroke="#00c4cc" stroke-width="1.4" stroke-linecap="round"/>
+                        <path d="M8 2s4 4 4 6-4 6-4 6 4 4 4 6" stroke="#00c4cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 2s-4 4-4 6 4 6 4 6-4 4-4 6" stroke="#00c4cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>The Power of Patience</h3>
+                    <p>Photography, especially in genres like wildlife and street photography, requires immense patience. Some of the best shots come from waiting for the right moment. Whether it’s capturing the perfect expression on a person’s face or waiting for the right lighting conditions, patience always pays off.</p>
+                </div>
+            </div>
+
+            <!-- Service card for "Editing Enhances" -->
+            <div class="service-card">
+                <!-- SVG icon for editing (sliders), styled with teal accents -->
+                <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2" stroke="#00c4cc" stroke-width="1.3" fill="rgba(0,196,204,0.04)"/>
+                        <path d="M7 9h6M11 15h6" stroke="#00c4cc" stroke-width="1.6" stroke-linecap="round"/>
+                        <circle cx="9" cy="9" r="1.4" fill="#00c4cc"/>
+                        <circle cx="13" cy="15" r="1.4" fill="#00c4cc"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>Editing Enhances</h3>
+                    <p>Post-processing is an essential part of modern photography, but I have learned that editing should enhance an image rather than fix fundamental mistakes. A well-exposed and well-composed photograph requires minimal adjustments, making editing a tool rather than a crutch.</p>
+                </div>
+            </div>
+
+            <!-- Service card for "Storytelling is Key" -->
+            <div class="service-card">
+                <!-- SVG icon for storytelling (book), styled with animation -->
+                <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M4 19.5V6.5a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v13" stroke="#00c4cc" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 6.5a4 4 0 0 1 4 0 4 4 0 0 1 4 0 4 4 0 0 1 4 0" stroke="#00c4cc" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>Storytelling is Key</h3>
+                    <p>Every photograph should tell a story or evoke an emotion. Whether it’s a portrait, landscape, or candid moment, the most impactful images connect with the viewer on a deeper level. Learning to capture emotions and narratives in my photographs has been one of the most rewarding aspects of my journey.</p>
+                </div>
+            </div>
+
+            <!-- Service card for "Never Stop Learning" -->
+            <div class="service-card">
+                <!-- SVG icon for continuous learning (lightbulb), styled with animation -->
+                <div class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M9 18h6M10 21h4" stroke="#00c4cc" stroke-width="1.4" stroke-linecap="round"/>
+                        <path d="M12 2a6 6 0 0 0-4 10c0 1.5.8 2.5 1.6 3.4.7.8.8 1.6.8 3.6h4c0-2 .1-2.8.8-3.6.8-.9 1.6-1.9 1.6-3.4A6 6 0 0 0 12 2z" stroke="#00c4cc" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="rgba(0,196,204,0.04)"/>
+                    </svg>
+                </div>
+                <div class="content">
+                    <h3>Never Stop Learning</h3>
+                    <p>Photography is constantly evolving, and there is always something new to learn. From experimenting with different styles and techniques to staying updated with new technology, continuous learning has helped me grow as a photographer.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer section with contact info, copyright, and location, styled with a gradient background -->
+    <footer>
+        <p>Email: mohmaede31@gmail.com</p>
+        <p><em>Copyright © 2025 OG Photography. All Rights Reserved.</em></p>
+        <p>Moorhead, MN - Fargo, ND</p>
+    </footer>
+    
+    <!-- Include JavaScript file to handle mobile navigation toggle -->
+    <script src="scripts.js"></script>
+</body>
+</html>

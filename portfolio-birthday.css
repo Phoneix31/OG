@@ -1,0 +1,419 @@
+/* Import the Roboto font from Google Fonts with weights 400 (regular) and 700 (bold) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Reset default margins and padding, set up a flexbox column layout for the body, ensure it takes full viewport height, set dark background */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+/* Style the header: fixed at the top, full-width, with a background image, shadow, and flex layout for logo and navigation */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-image: url('header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 2cm;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*ಸ
+
+System: /* Add a semi-transparent dark overlay to the header for better text readability */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 15, 15, 0.579);
+  z-index: 1;
+}
+
+/* Style the logo container, ensuring it stays above the header overlay */
+.logo {
+  margin-left: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the logo image with a fixed height and a subtle scale animation on hover */
+.logo img {
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Style the navigation, positioned to the right and above the header overlay */
+nav {
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the navigation list as a horizontal flexbox with no default styling */
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Add spacing between navigation items */
+nav ul li {
+  margin-right: 20px;
+}
+
+/* Style navigation links with consistent typography, no underline, and hover effects */
+nav ul li a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 8px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Change link color and add a bottom border on hover or when active */
+nav ul li a:hover, nav ul li a.active {
+  color: rgb(161, 40, 40); /* Red color for hover/active state */
+  border-bottom: 2px solid rgb(161, 40, 40);
+}
+
+/* Style the contact button in the navigation with a red background and hover effect */
+.contact-btn-nav {
+  background: rgb(161, 40, 40);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 16px;
+  min-width: 80px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+/* Maintain the same background color on hover (no change, could be enhanced for visual feedback) */
+.contact-btn-nav:hover {
+  background: rgb(161, 40, 40);
+}
+
+/* Hero Section: Style the hero section with a background image, centered text, and padding for the fixed header */
+.hero {
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  margin-bottom: px; /* Syntax error: 'px' is incomplete; likely meant to be 0px */
+  background-image: url('Image/birthday/W1.jpg');
+  min-height: 10cm;
+  background-size: cover;
+  background-position: top;
+  margin-top: -90px; /* Overlaps with header to avoid gap */
+  padding-top: 90px; /* Compensates for negative margin */
+}
+
+/* Style the hero heading with large, bold text */
+.hero h1 {
+  font-size: 2.8em;
+  margin-bottom: .5em;
+  font-weight: 700;
+  position: center; /* Invalid value; likely meant to be text-align: center (already set by .hero) */
+  margin-top: 4em; /* Moves heading down within hero section */
+}
+
+/* Style the hero paragraph with centered, constrained width */
+.hero p {
+  font-size: 1.2em;
+  color: #fff;
+  max-width: 800px;
+  margin: 0 auto 5em;
+  position: center; /* Invalid value; likely redundant */
+}
+
+/* Style the hero call-to-action button with a red background */
+.hero .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: rgb(161, 40, 40)3e8; /* Syntax error: Invalid color; likely meant rgb(161, 40, 40) */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+/* Maintain the same background color on hover (no change, could be enhanced) */
+.hero .btn:hover {
+  background-color: rgb(161, 40, 40);
+}
+
+/* Gallery Section: Style the gallery as a responsive grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  background-color: #000000; /* Dark background */
+  background-size: cover; /* Redundant for solid color background */
+}
+
+/* Style individual gallery items with hover effects */
+.gallery-item {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1c2526; /* Dark background for gallery items */
+  background-size: cover; /* Redundant for solid color background */
+}
+
+/* Add lift and shadow effects on hover */
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Style gallery images to fit the container */
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Lightbox Styles: Style the lightbox overlay for enlarged images */
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Style the lightbox image content */
+.lightbox-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  animation: lightboxZoom 0.4s ease; /* Zoom animation */
+}
+
+/* Style the lightbox caption */
+#lightbox-caption {
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+/* Style the lightbox close button */
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Change close button color on hover/focus */
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: #bbb;
+}
+
+/* Style the lightbox navigation buttons */
+.lightbox-prev, .lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1010;
+  padding: 10px;
+}
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+/* Change navigation button color on hover */
+.lightbox-prev:hover, .lightbox-next:hover { color: #bbb; }
+
+/* Define the zoom animation for the lightbox */
+@keyframes lightboxZoom {
+  from {transform: scale(0.8); opacity: 0.5;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+/* Style the footer with a gradient background and red accents */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background: linear-gradient(to bottom, #0f0e0e, rgb(161, 40, 40));
+  border-top: 1px solid rgb(161, 40, 40);
+  margin-top: 0;
+  color: #bbb;
+}
+
+/* Style footer paragraphs with Times New Roman font */
+footer p {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Style footer branding with italicized text and hover effect */
+.footer-branding {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-branding:hover {
+  color: #ddd;
+}
+
+/* Responsive adjustments for large tablets */
+@media (max-width: 992px) {
+  .description__content { /* Not used in portfolio HTML; likely from info.html */
+    flex-direction: column;
+    align-items: center;
+  }
+  .info__image { /* Not used in portfolio HTML */
+    max-width: 350px;
+    width: 80%;
+  }
+  .description__text { /* Not used in portfolio HTML */
+    text-align: center;
+  }
+}
+
+/* Responsive adjustments for medium screens (e.g., tablets) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  nav ul {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  nav ul li a {
+    display: block;
+    width: 80%;
+    margin: 5px auto;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller grid items */
+  }
+
+  .gallery-item img {
+    height: 180px; /* Smaller image height */
+  }
+
+  .hero {
+    padding: 60px 20px; /* Reduced padding */
+  }
+
+  .hero h1 {
+    font-size: 2.2em; /* Smaller heading */
+  }
+
+  .hero p {
+    font-size: 1em; /* Smaller paragraph */
+  }
+
+  footer {
+    padding: 30px 15px; /* Adjusted padding */
+  }
+}
+
+/* Responsive adjustments for small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+  header {
+    padding: 15px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr; /* Single-column grid */
+  }
+
+  .gallery-item img {
+    height: 150px; /* Smaller image height */
+  }
+
+  .hero {
+    padding: 40px 15px; /* Reduced padding */
+  }
+
+  .hero h1 {
+    font-size: 1.8em; /* Smaller heading */
+  }
+
+  .hero p {
+    font-size: 0.9em; /* Smaller paragraph */
+  }
+
+  footer {
+    padding: 20px 10px; /* Reduced padding */
+  }
+}

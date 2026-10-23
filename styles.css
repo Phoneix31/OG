@@ -1,0 +1,391 @@
+/* Import Roboto font (duplicated - first import can be removed) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global reset and base styles */
+* {
+  box-sizing: border-box; /* Include padding/border in element dimensions */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+  background-color: #1a1a1a; /* Dark theme */
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+/* Duplicate body rule - remove the first one and keep this (more specific) */
+body {
+  background-color: #000000; /* Pure black background */
+}
+
+/* Fixed header with background image and overlay */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-image: url('header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 2cm;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Dark overlay for header readability */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 15, 15, 0.579);
+  z-index: 1;
+}
+
+/* Logo styling */
+.logo {
+  margin-left: 0;
+  position: relative;
+  z-index: 2; /* Above overlay */
+}
+
+.logo img {
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* Navigation styling */
+nav {
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 8px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Consistent teal hover/active state across site */
+nav ul li a:hover, nav ul li a.active {
+  color: #00c4cc;
+  border-bottom: 2px solid #00c4cc;
+}
+
+/* BOOK NOW button with teal background */
+.contact-btn-nav {
+  background: #00c4cc;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 16px;
+  min-width: 80px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+/* Missing hover effect - should darken teal */
+.contact-btn-nav:hover {
+  background: #00c4cc; /* No change - should be darker (e.g., #0099a6) */
+}
+
+/* Hero Section - standardized across site */
+.hero {
+  background: linear-gradient(to bottom, #040404, #000000); /* Dark gradient */
+  border-top: 1px solid #000000;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+/* Overlay for text readability */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Hero logo with hover effects */
+.hero-logo {
+  max-width: 300px;
+  width: 70%;
+  height: auto;
+  margin: 0 0 10px;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.hero-logo:hover { 
+  transform: translateY(-4px) scale(1.02); 
+  filter: brightness(1.03); 
+}
+
+/* Hero heading with serif font */
+.hero h1 {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 2.4rem;
+  margin: 0 0 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: #dcdcdc;
+  max-width: 820px;
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+/* Call-to-action button with teal theme */
+.cta-btn {
+  display: inline-block;
+  background: #00c4cc;
+  color: #082226; /* Dark text for contrast */
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0,196,204,0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cta-btn:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 14px 34px rgba(0,196,204,0.18); 
+}
+
+/* Portfolio Section - links to individual portfolio pages */
+.portfolio-section {
+  padding: 0;
+  margin: 0;
+  margin-top: -3cm; /* Overlap with hero */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.portfolio-item {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 450px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* Individual portfolio backgrounds */
+.wedding {
+  background-image: url('Image/Wedding/W1.jpeg');
+}
+
+.couples {
+  background-image: url('Image/Couple/W15.jpg');
+}
+
+.birthday {
+  background-image: url('Image/Birthday/W1.jpg');
+  background-size: cover;
+  background-position: top;
+}
+
+/* Overlay for portfolio cards */
+.portfolio-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover::before {
+  opacity: 0.7; /* Darker on hover */
+}
+
+.portfolio-item:hover {
+  transform: scale(1.05); /* Lift effect */
+}
+
+.portfolio-item h2 {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+/* Portfolio buttons with theme-specific hover colors */
+.portfolio-btn-birthday, .portfolio-btn-wedding, .portfolio-btn-couples {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-btn-birthday:hover {
+  background: rgb(161, 40, 40); /* Red - matches birthday portfolio */
+  transform: scale(1.1);
+}
+
+.portfolio-btn-wedding:hover {
+  background: rgb(166, 124, 26); /* Gold - matches wedding portfolio */
+  transform: scale(1.1);
+}
+
+.portfolio-btn-couples:hover {
+  background: rgb(26, 105, 166); /* Blue - matches couples portfolio */
+  transform: scale(1.1);
+}
+
+/* Footer with teal gradient */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background: linear-gradient(to bottom, #000000, #00c4cc);
+  border-top: 1px solid #000000;
+  margin-top: 0;
+  color: #bbb;
+}
+
+footer p {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.footer-branding {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  margin-top: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-branding:hover {
+  color: #ddd;
+}
+
+/* Lightbox styles (possibly unused on homepage) */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header { padding: 10px 20px; }
+  .logo img { height: 70px; }
+  nav ul li { margin-right: 15px; }
+  nav ul li a { font-size: 14px; padding: 6px 10px; }
+  .contact-btn-nav { padding: 8px 15px; font-size: 14px; }
+  .hero { padding: 80px 20px; }
+  .portfolio-item { height: 350px; max-width: 100%; }
+  .portfolio-item h2 { font-size: 2em; }
+}
+
+@media (max-width: 480px) {
+  header { padding: 8px 15px; }
+  .logo img { height: 50px; }
+  nav ul li { margin-right: 10px; }
+  nav ul li a { font-size: 12px; padding: 4px 8px; }
+  .contact-btn-nav { padding: 6px 12px; font-size: 12px; min-width: 70px; }
+  .hero { padding: 56px 12px; min-height: 44vh; }
+  .hero h1 { font-size: 1.4rem; }
+  .portfolio-item { height: 250px; }
+  .portfolio-item h2 { font-size: 1.5em; }
+}

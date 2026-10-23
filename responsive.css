@@ -1,0 +1,116 @@
+/* Professional responsive utilities for OG Photography */
+:root{
+  --bg:#000;
+  --muted:#dcdcdc;
+  --accent:#00c4cc;
+  --accent-dark:#0b5b5d;
+  --text:#ffffff;
+  --max-width:1200px;
+  --gap:20px;
+  --radius:10px;
+  --transition:200ms ease;
+  --header-gap:12px; /* used by JS for body padding gap */
+}
+
+/* Reset + utilities */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial}
+img,picture,video{max-width:100%;height:auto;display:block}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 16px}
+
+/* Layout helpers */
+main{width:100%}
+.flex{display:flex}
+.center{display:flex;align-items:center;justify-content:center}
+.grid{display:grid;gap:var(--gap)}
+
+/* Header & Nav */
+header{position:fixed;inset:0 0 auto 0;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.25));backdrop-filter:blur(6px);z-index:999}
+.logo img{height:64px;display:block}
+nav{margin-left:auto}
+nav ul{display:flex;gap:14px;align-items:center;list-style:none;margin:0;padding:0}
+nav a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:6px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;font-size:14px}
+nav a:hover,nav a:focus{background:rgba(255,255,255,0.03);outline:none;color:var(--accent)}
+
+/* Mobile toggle */
+.nav-toggle{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.hamburger, .hamburger::before, .hamburger::after{width:26px;height:3px;background:var(--text);border-radius:3px;display:block;transition:var(--transition);position:relative}
+.hamburger::before,.hamburger::after{content:"";position:absolute;left:0}
+.hamburger::before{top:-8px}
+.hamburger::after{top:8px}
+.nav-toggle[aria-expanded="true"] .hamburger{background:transparent}
+.nav-toggle[aria-expanded="true"] .hamburger::before{transform:translateY(8px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .hamburger::after{transform:translateY(-8px) rotate(-45deg)}
+
+/* Mobile nav states (controlled by JS: nav.open) */
+@media (max-width:768px){
+  /* ensure header can show dropdown outside its normal bounds */
+  header{overflow:visible}
+
+  .nav-toggle{display:block;position:absolute;right:18px;top:18px;z-index:2200}
+
+  /* Scope to header and force display rules to override page-specific CSS */
+  header nav{position:absolute;left:0;right:0;top:100%;background:linear-gradient(180deg, rgba(0,0,0,0.96), rgba(0,0,0,0.99));transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform 240ms var(--transition),opacity 200ms ease;display:block;z-index:2100}
+  header nav.open{transform:translateY(0) !important;opacity:1 !important;pointer-events:auto !important}
+
+  /* Ensure the UL stacks vertically and can scroll if long */
+  header nav ul{flex-direction:column;padding:18px 12px;margin:0;max-height:66vh;overflow:auto}
+  header nav a{width:100%;text-align:center;padding:12px 14px;border-radius:8px}
+}
+
+/* Hero */
+.hero{display:flex;align-items:center;justify-content:center;min-height:60vh;padding:72px 16px 48px;position:relative;overflow:hidden;margin-top:-3cm; /* adjust based on header height */}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:980px;text-align:center;padding:8px}
+.hero-logo{width:250px;height:auto;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,0.6);margin:0 auto 18px;transition:transform var(--transition)}
+/*.hero h1{font-family:Georgia, 'Times New Roman', serif;font-size:3.5rem;margin:0 0 8px;color:var(--text);line-height:3px;}*/
+.hero p{color:var(--muted);font-size:1.05rem;max-width:820px;margin:0 auto 18px}
+.cta-btn{display:inline-block;background:var(--accent);color:#041717;padding:12px 20px;border-radius:10px;font-weight:800;text-decoration:none}
+
+/* Portfolio section */
+.portfolio-section{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;padding:8px}
+.portfolio-item{flex:1 1 300px;max-width:420px;height:420px;border-radius:12px;background-position:center;background-size:cover;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.portfolio-item::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.5));transition:opacity var(--transition)}
+.portfolio-item h2{position:relative;z-index:2;font-family:Georgia, serif;font-size:1.8rem;margin:0;color:var(--text);letter-spacing:1px}
+.portfolio-item a{position:relative;z-index:2;margin-top:12px;display:inline-block}
+.portfolio-item:hover::before{background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.62))}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px,1fr));gap:16px;padding:var(--gap)}
+.gallery-item{border-radius:10px;overflow:hidden;background:#0e0e0e}
+.gallery-item img{display:block;width:100%;height:220px;object-fit:cover}
+
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:24px;z-index:2000}
+.lightbox-content{max-width:92%;max-height:86vh;border-radius:6px}
+.lightbox-close{position:absolute;right:22px;top:18px;color:#fff;font-size:32px}
+
+/* Footer */
+/*footer{padding:30px 16px;background:linear-gradient(180deg,#000,#071717);text-align:center;color:var(--muted)}
+footer p{margin:8px 0}*/
+
+/* Accessibility: focus styles */
+a:focus,button:focus{outline:3px solid rgba(0,196,204,0.18);outline-offset:3px}
+
+/* Breakpoints */
+@media (max-width:992px){
+  .hero{padding:64px 14px 40px}
+  .hero-logo{width:140px}
+  .hero h1{font-size:1.9rem}
+}
+
+@media (max-width:768px){
+  header{padding:12px 16px}
+  .logo img{height:56px}
+  .hero{min-height:48vh;padding:84px 12px 28px}
+  .hero h1{font-size:1.5rem}
+  .gallery-item img{height:180px}
+}
+
+@media (max-width:480px){
+  .hero{padding:72px 12px 24px}
+  .hero-logo{width:110px}
+  .hero h1{font-size:1.25rem}
+  .hero p{font-size:0.95rem}
+  .portfolio-item{height:320px}
+}

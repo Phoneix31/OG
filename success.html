@@ -1,0 +1,154 @@
+<!-- Declare the document type as HTML5 -->
+<!DOCTYPE html>
+
+<!-- Define the HTML document with English as the primary language -->
+<html lang="en">
+
+<head>
+  <!-- Specify UTF-8 character encoding for proper text rendering -->
+  <meta charset="UTF-8">
+  
+  <!-- Ensure responsive design by setting viewport to device width and initial scale -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Provide a meta description for SEO, describing the success page -->
+  <meta name="description" content="Booking confirmation for OG Photography"/>
+  
+  <!-- Set the page title displayed in the browser tab -->
+  <title>Booking Confirmed - OG Photography</title>
+  
+  <!-- Link to the booking stylesheet (typo: "booonow.css" should be "booknow.css") -->
+  <link rel="stylesheet" href="booonow.css" />
+  
+  <!-- Set the favicon for the browser tab -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  
+  <!-- Include Animate.css for fade-in animations on the card -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
+  <!-- Inline CSS for the success page styling -->
+  <style>
+    /* Style the body with a dark background, centered content, and full viewport height */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    /* Style the confirmation card with a dark gray background, padding, and shadow */
+    .card {
+      background-color: rgb(48, 47, 47);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    
+    /* Style the heading with teal color and spacing */
+    h1 {
+      font-size: 28px;
+      color: #00c4cc;
+      margin-bottom: 15px;
+    }
+    
+    /* Style paragraphs with white text and spacing */
+    p {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+    
+    /* Style the return link as a teal button with hover effect */
+    a {
+      text-decoration: none;
+      color: white;
+      background-color: #00c4cc;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    
+    /* Darken the button background on hover for visual feedback */
+    a:hover {
+      background-color: #00a0a6; /* Slightly darker teal on hover */
+    }
+    
+    /* Style error messages with red text, initially hidden */
+    .error-message {
+      font-size: 16px;
+      color: #dc3545;
+      margin-bottom: 25px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Confirmation card with fade-in animation -->
+  <div class="card animate__animated animate__fadeInUp">
+    <!-- Success heading -->
+    <h1>Thank You!</h1>
+    
+    <!-- Success message, initially displayed -->
+    <p id="success-message">Your booking and deposit were successful.</p>
+    
+    <!-- Error message container, hidden by default -->
+    <p id="error-message" class="error-message"></p>
+    
+    <!-- Link to return to booking page -->
+    <a href="booknow.html">Return to Booking Page</a>
+  </div>
+  
+  <!-- Inline JavaScript to confirm booking and handle errors -->
+  <script>
+    // Wait for DOM to load
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Get session ID from URL parameters (passed from Stripe)
+      const urlParams = new URLSearchParams(window.location.search);
+      const sessionId = urlParams.get('session_id');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+
+      // Handle missing session ID
+      if (!sessionId) {
+        successMessage.style.display = 'none';
+        errorMessage.textContent = 'Error: No session ID found. Please contact support at info@phoenixphotography.com.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      try {
+        // Call backend to confirm booking and create calendar event
+        const response = await fetch('http://localhost:3000/api/confirm-booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sessionId })
+        });
+
+        const result = await response.json();
+        if (!result.success) {
+          // Hide success and show error
+          successMessage.style.display = 'none';
+          errorMessage.textContent = `Error: ${result.message || 'Failed to confirm booking. Please contact support at info@phoenixphotography.com.'}`;
+          errorMessage.style.display = 'block';
+        } else {
+          // Update success message
+          successMessage.textContent = 'Your booking has been confirmed and added to our calendar!';
+        }
+      } catch (err) {
+        // Handle network errors
+        console.error('Error confirming booking:', err);
+        successMessage.style.display = 'none';
+        errorMessage.textContent = 'Error: Something went wrong. Please contact support at info@phoenixphotography.com.';
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

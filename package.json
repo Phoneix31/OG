@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "googleapis": "^153.0.0",
+    "helmet": "^8.1.0",
+    "nodemailer": "^7.0.5",
+    "stripe": "^18.5.0"
+  },
+  "name": "og",
+  "version": "1.0.0",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phoneix31/OG.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Phoneix31/OG/issues"
+  },
+  "homepage": "https://github.com/Phoneix31/OG#readme",
+  "description": ""
+}

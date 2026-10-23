@@ -1,0 +1,82 @@
+<!-- Declare the document type as HTML5 -->
+<!DOCTYPE html>
+
+<!-- Define the HTML document with English as the primary language -->
+<html lang="en">
+
+<head>
+  <!-- Specify UTF-8 character encoding for proper text rendering -->
+  <meta charset="UTF-8">
+  
+  <!-- Set the page title displayed in the browser tab -->
+  <title>Booking Confirmed</title>
+  
+  <!-- Inline CSS for styling the page -->
+  <style>
+    /* Style the body with a dark background, centered content, and full viewport height */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    /* Style the card container with a dark gray background, padding, and shadow */
+    .card {
+      background-color: rgb(48, 47, 47);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    
+    /* Style the heading with a teal color and spacing */
+    h1 {
+      font-size: 28px;
+      color: #00c4cc;
+      margin-bottom: 15px;
+    }
+    
+    /* Style paragraphs with white text and spacing */
+    p {
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+    
+    /* Style the link as a button with a teal background and hover effect */
+    a {
+      text-decoration: none;
+      color: white;
+      background-color: #00c4cc;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    
+    /* Maintain the same background color on hover (no change, could be enhanced) */
+    a:hover {
+      background-color: #00c4cc;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Card container for the cancellation message -->
+  <div class="card">
+    <!-- Heading indicating payment cancellation -->
+    <h1>Payment Cancelled</h1>
+    
+    <!-- Message informing the user that the booking was not completed -->
+    <p>Your booking was not completed.</p>
+    
+    <!-- Link to retry booking, styled as a teal button -->
+    <a href="booknow.html">Try Again</a>
+  </div>
+</body>
+</html>
