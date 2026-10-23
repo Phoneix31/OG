@@ -16,7 +16,6 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-image: url('header-bg.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -128,7 +127,7 @@ nav ul li a:hover, nav ul li a.active {
   padding: 100px 20px;
   text-align: center;
   margin-bottom: px; /* Syntax error: 'px' is incomplete; likely meant to be 0px */
-  background-image: url('Image/Wedding/W1.jpeg');
+  background-image: url('../images/wedding/w1.jpg');
   min-height: 10cm;
   background-size: cover;
   background-position: top;

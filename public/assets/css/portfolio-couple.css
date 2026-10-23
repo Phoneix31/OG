@@ -16,7 +16,6 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-image: url('header-bg.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -29,9 +28,7 @@ header {
   font-family: 'Roboto', sans-serif;
 }
 
-/*ಸ
-
-System: /* Add a semi-transparent dark overlay to the header for better text readability */
+/* Add a semi-transparent dark overlay to the header for better text readability */
 header::before {
   content: '';
   position: absolute;
@@ -97,13 +94,13 @@ nav ul li a {
 
 /* Change link color and add a bottom border on hover or when active */
 nav ul li a:hover, nav ul li a.active {
-  color: rgb(161, 40, 40); /* Red color for hover/active state */
-  border-bottom: 2px solid rgb(161, 40, 40);
+  color: #1a73e8; /* Blue color for hover/active state */
+  border-bottom: 2px solid #1a73e8;
 }
 
-/* Style the contact button in the navigation with a red background and hover effect */
+/* Style the contact button in the navigation with a blue background and hover effect */
 .contact-btn-nav {
-  background: rgb(161, 40, 40);
+  background: #1a73e8;
   color: #fff !important;
   padding: 10px 20px;
   border-radius: 4px;
@@ -119,18 +116,18 @@ nav ul li a:hover, nav ul li a.active {
   z-index: 2;
 }
 
-/* Maintain the same background color on hover (no change, could be enhanced for visual feedback) */
+/* Darken the button background on hover for visual feedback */
 .contact-btn-nav:hover {
-  background: rgb(161, 40, 40);
+  background: #1557b0;
 }
 
-/* Hero Section: Style the hero section with a background image, centered text, and padding for the fixed header */
+/* Hero Section: Style the hero section with a couple-themed background image, centered text, and padding for the fixed header */
 .hero {
   color: #fff;
   padding: 100px 20px;
   text-align: center;
   margin-bottom: px; /* Syntax error: 'px' is incomplete; likely meant to be 0px */
-  background-image: url('Image/birthday/W1.jpg');
+  background-image: url('../images/couple/w1.jpg');
   min-height: 10cm;
   background-size: cover;
   background-position: top;
@@ -156,11 +153,11 @@ nav ul li a:hover, nav ul li a.active {
   position: center; /* Invalid value; likely redundant */
 }
 
-/* Style the hero call-to-action button with a red background */
+/* Style the hero call-to-action button with a blue background */
 .hero .btn {
   display: inline-block;
   padding: 12px 25px;
-  background-color: rgb(161, 40, 40)3e8; /* Syntax error: Invalid color; likely meant rgb(161, 40, 40) */
+  background-color: #1a73e8;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -168,9 +165,9 @@ nav ul li a:hover, nav ul li a.active {
   transition: background 0.3s ease;
 }
 
-/* Maintain the same background color on hover (no change, could be enhanced) */
+/* Darken the button background on hover */
 .hero .btn:hover {
-  background-color: rgb(161, 40, 40);
+  background-color: #1557b0;
 }
 
 /* Gallery Section: Style the gallery as a responsive grid */
@@ -290,12 +287,12 @@ nav ul li a:hover, nav ul li a.active {
   to {transform: scale(1); opacity: 1;}
 }
 
-/* Style the footer with a gradient background and red accents */
+/* Style the footer with a gradient background and blue accents */
 footer {
   text-align: center;
   padding: 30px 0;
-  background: linear-gradient(to bottom, #0f0e0e, rgb(161, 40, 40));
-  border-top: 1px solid rgb(161, 40, 40);
+  background: linear-gradient(to bottom, #0f0e0e, #1a73e8);
+  border-top: 1px solid #1a73e8;
   margin-top: 0;
   color: #bbb;
 }

@@ -18,10 +18,10 @@
   <title>Booking Confirmed - OG Photography</title>
   
   <!-- Link to the booking stylesheet (typo: "booonow.css" should be "booknow.css") -->
-  <link rel="stylesheet" href="booonow.css" />
+  <link rel="stylesheet" href="assets/css/booknow.css" />
   
   <!-- Set the favicon for the browser tab -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  
   
   <!-- Include Animate.css for fade-in animations on the card -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -125,7 +125,7 @@
 
       try {
         // Call backend to confirm booking and create calendar event
-        const response = await fetch('http://localhost:3000/api/confirm-booking', {
+        const response = await fetch('/api/confirm-booking', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ sessionId })

@@ -16,7 +16,6 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-image: url('header-bg.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -29,7 +28,9 @@ header {
   font-family: 'Roboto', sans-serif;
 }
 
-/* Add a semi-transparent dark overlay to the header for better text readability */
+/*ಸ
+
+System: /* Add a semi-transparent dark overlay to the header for better text readability */
 header::before {
   content: '';
   position: absolute;
@@ -95,13 +96,13 @@ nav ul li a {
 
 /* Change link color and add a bottom border on hover or when active */
 nav ul li a:hover, nav ul li a.active {
-  color: #1a73e8; /* Blue color for hover/active state */
-  border-bottom: 2px solid #1a73e8;
+  color: rgb(161, 40, 40); /* Red color for hover/active state */
+  border-bottom: 2px solid rgb(161, 40, 40);
 }
 
-/* Style the contact button in the navigation with a blue background and hover effect */
+/* Style the contact button in the navigation with a red background and hover effect */
 .contact-btn-nav {
-  background: #1a73e8;
+  background: rgb(161, 40, 40);
   color: #fff !important;
   padding: 10px 20px;
   border-radius: 4px;
@@ -117,18 +118,18 @@ nav ul li a:hover, nav ul li a.active {
   z-index: 2;
 }
 
-/* Darken the button background on hover for visual feedback */
+/* Maintain the same background color on hover (no change, could be enhanced for visual feedback) */
 .contact-btn-nav:hover {
-  background: #1557b0;
+  background: rgb(161, 40, 40);
 }
 
-/* Hero Section: Style the hero section with a couple-themed background image, centered text, and padding for the fixed header */
+/* Hero Section: Style the hero section with a background image, centered text, and padding for the fixed header */
 .hero {
   color: #fff;
   padding: 100px 20px;
   text-align: center;
   margin-bottom: px; /* Syntax error: 'px' is incomplete; likely meant to be 0px */
-  background-image: url('Image/Couple/W1.jpg');
+  background-image: url('../images/birthday/w1.jpg');
   min-height: 10cm;
   background-size: cover;
   background-position: top;
@@ -154,11 +155,11 @@ nav ul li a:hover, nav ul li a.active {
   position: center; /* Invalid value; likely redundant */
 }
 
-/* Style the hero call-to-action button with a blue background */
+/* Style the hero call-to-action button with a red background */
 .hero .btn {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #1a73e8;
+  background-color: rgb(161, 40, 40)3e8; /* Syntax error: Invalid color; likely meant rgb(161, 40, 40) */
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -166,9 +167,9 @@ nav ul li a:hover, nav ul li a.active {
   transition: background 0.3s ease;
 }
 
-/* Darken the button background on hover */
+/* Maintain the same background color on hover (no change, could be enhanced) */
 .hero .btn:hover {
-  background-color: #1557b0;
+  background-color: rgb(161, 40, 40);
 }
 
 /* Gallery Section: Style the gallery as a responsive grid */
@@ -288,12 +289,12 @@ nav ul li a:hover, nav ul li a.active {
   to {transform: scale(1); opacity: 1;}
 }
 
-/* Style the footer with a gradient background and blue accents */
+/* Style the footer with a gradient background and red accents */
 footer {
   text-align: center;
   padding: 30px 0;
-  background: linear-gradient(to bottom, #0f0e0e, #1a73e8);
-  border-top: 1px solid #1a73e8;
+  background: linear-gradient(to bottom, #0f0e0e, rgb(161, 40, 40));
+  border-top: 1px solid rgb(161, 40, 40);
   margin-top: 0;
   color: #bbb;
 }

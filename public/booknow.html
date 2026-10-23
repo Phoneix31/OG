@@ -18,13 +18,13 @@
   <title>Book Appointment - OG Photography</title>
   
   <!-- Link to the main stylesheet (booknow.css) for booking page styling -->
-  <link rel="stylesheet" href="booknow.css" />
+  <link rel="stylesheet" href="assets/css/booknow.css" />
   
   <!-- Link to an additional stylesheet (responsive.css) for responsive design rules -->
-  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
   
   <!-- Set the favicon for the browser tab -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  
   
   <!-- Include Animate.css for fade-in animations on the container -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -38,7 +38,7 @@
   <header>
     <!-- Logo container with an image, styled to scale on hover -->
     <div class="logo">
-      <img src="Image/logo1.PNG" alt="OG Photography logo">
+      <img src="assets/images/logo.png" alt="OG Photography logo">
     </div>
     
     <!-- Hamburger menu toggle button for mobile navigation, hidden on larger screens -->
@@ -214,7 +214,7 @@
 
         try {
           // First check booking availability
-          const bookingRes = await fetch('http://localhost:3000/api/book', {
+          const bookingRes = await fetch('/api/book', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData) // Include phone in availability check
@@ -224,7 +224,7 @@
 
           if (result.success) {
             // If booking is available, create Stripe checkout session with ALL form data
-            const stripeRes = await fetch('http://localhost:3000/api/create-checkout-session', {
+            const stripeRes = await fetch('/api/create-checkout-session', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ name, email, phone, date, startTime, duration }) // ✅ INCLUDE PHONE HERE
@@ -273,7 +273,7 @@
 
         try {
           // Fetch booked times for the selected date
-          const response = await fetch('http://localhost:3000/api/booked-times', {
+          const response = await fetch('/api/booked-times', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ date })
@@ -309,6 +309,6 @@
   </script>
   
   <!-- Include additional JavaScript file for shared functionality (e.g., mobile nav toggle) -->
-  <script src="scripts.js"></script>
+  <script src="assets/js/scripts.js"></script>
 </body>
 </html>

@@ -3,3 +3,8 @@
 .DS_Store
 /google-service-account.json
 .env
+*.log
+bookings.json
+/data/
+.env.*
+!.env.example

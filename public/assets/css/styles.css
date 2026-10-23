@@ -27,7 +27,6 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-image: url('header-bg.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -248,15 +247,15 @@ nav ul li a:hover, nav ul li a.active {
 
 /* Individual portfolio backgrounds */
 .wedding {
-  background-image: url('Image/Wedding/W1.jpeg');
+  background-image: url('../images/wedding/w1.jpg');
 }
 
 .couples {
-  background-image: url('Image/Couple/W15.jpg');
+  background-image: url('../images/couple/w15.jpg');
 }
 
 .birthday {
-  background-image: url('Image/Birthday/W1.jpg');
+  background-image: url('../images/birthday/w1.jpg');
   background-size: cover;
   background-position: top;
 }

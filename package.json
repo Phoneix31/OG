@@ -1,21 +1,22 @@
 {
   "dependencies": {
-    "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
     "googleapis": "^153.0.0",
     "helmet": "^8.1.0",
-    "nodemailer": "^7.0.5",
     "stripe": "^18.5.0"
   },
-  "name": "og",
+  "name": "og-photography",
   "version": "1.0.0",
-  "main": "scripts.js",
+  "private": true,
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "check": "node --check src/config.js && node --check src/services/calendar.js && node --check src/services/stripe.js && node --check src/routes/bookings.js && node --check src/routes/payments.js && node --check src/app.js && node --check src/server.js && node --check public/assets/js/scripts.js",
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,5 @@
     "url": "https://github.com/Phoneix31/OG/issues"
   },
   "homepage": "https://github.com/Phoneix31/OG#readme",
-  "description": ""
+  "description": "Photography portfolio and booking application"
 }
